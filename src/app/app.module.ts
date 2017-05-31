@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { BaseRequestOptions, HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdInputModule, MdButtonModule, MdCardModule } from '@angular/material';
 
@@ -27,7 +27,7 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { LoginComponent } from './components/login';
+import { LoginComponent } from './login';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
@@ -35,6 +35,16 @@ import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { AuthGuard } from './_guards';
+import { AlertService } from './_services/alert.service';
+import { UserService } from './_services/user.service';
+import { AuthenticationService } from './_services/authentication.service';
+import { fakeBackendProvider } from './_helpers/fake-backend';
+import { MockBackend } from '@angular/http/testing';
+import { AlertComponent } from './_components/alert/alert.component';
+import { RegisterComponent } from './register/register.component';
+
+// Services
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -59,7 +69,9 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLargeDirective
+    XLargeDirective,
+    AlertComponent,
+    RegisterComponent
   ],
   /**
    * Import Angular's modules.
@@ -78,6 +90,16 @@ type StoreType = {
    * Expose our Services and Providers into Angular's dependency injection.
    */
   providers: [
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+
+    // providers used to create fake backend
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions,
+
     ENV_PROVIDERS,
     APP_PROVIDERS
   ]

@@ -1,8 +1,8 @@
+
+
 .login-form .login-button {
   max-width: 220px;
-  width: 60%;
-  margin: auto;
-  display: inherit;
+  margin: 10px;
 }
 
 .login-form md-input-container {
@@ -12,6 +12,7 @@
   margin: 0 auto 30px auto;
 }
 
-.login-form md-card {
-  margin: 20px;
+.login-form .button-container {
+  margin: auto;
+  display: inherit;
 }

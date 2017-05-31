@@ -1,0 +1,14 @@
+<form class="login-form" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+  <md-input-container>
+    <input type="text" name="username" mdInput placeholder="Username"
+           #username="ngModel" [(ngModel)]="model.username" required>
+  </md-input-container>
+  <md-input-container>
+    <input type="password" name="password" mdInput placeholder="Password"
+           #password="ngModel" [(ngModel)]="model.password" required>
+  </md-input-container>
+  <div class="button-container">
+    <button [disabled]="loading" class="login-button" md-raised-button>Login</button>
+    <button [routerLink]="['/register']" md-button>Register</button>
+  </div>
+</form>

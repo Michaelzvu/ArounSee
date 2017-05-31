@@ -1,0 +1,18 @@
+
+
+.register-form .login-button {
+  max-width: 220px;
+  margin: 10px;
+}
+
+.register-form md-input-container {
+  display: block;
+  max-width: 300px;
+  width: 90%;
+  margin: 0 auto 30px auto;
+}
+
+.register-form .button-container {
+  margin: auto;
+  display: inherit;
+}
