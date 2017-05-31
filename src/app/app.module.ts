@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BaseRequestOptions, HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdInputModule, MdButtonModule, MdCardModule } from '@angular/material';
+import {
+  MdInputModule, MdButtonModule,
+  MdCardModule, MdSidenavModule, MdToolbarModule, MdIconModule
+} from '@angular/material';
 
 import {
   NgModule,
@@ -84,6 +87,9 @@ type StoreType = {
     MdInputModule,
     MdButtonModule,
     MdCardModule,
+    MdSidenavModule,
+    MdToolbarModule,
+    MdIconModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**
