@@ -16,56 +16,44 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.component.css'
+    './app.component.css',
+    '../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css'
   ],
   template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
-      </a>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
+    <div id="anounsee-container">
+      <nav *ngIf="!isLoginState">
+        <a [routerLink]=" ['./'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Index
         </a>
-      </div>
-    </footer>
+        <a [routerLink]=" ['./home'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Home
+        </a>
+        <a [routerLink]=" ['./detail'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Detail
+        </a>
+        <a [routerLink]=" ['./barrel'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Barrel
+        </a>
+        <a [routerLink]=" ['./about'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          About
+        </a>
+      </nav>
+
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
   `
 })
 export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+  public isLoginState = true;
 
-  constructor(
-    public appState: AppState
-  ) {}
+  constructor(public appState: AppState) {}
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
