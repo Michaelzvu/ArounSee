@@ -18,7 +18,6 @@
   <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 
   <%= htmlWebpackPlugin.files.webpackManifest %>
-
 </head>
 
 <body>
@@ -37,7 +36,6 @@
     ga('create', 'UA-71073175-1', 'auto');
     ga('send', 'pageview');
   </script>
-
   <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
   <!-- Webpack Dev Server reload -->
   <script src="/webpack-dev-server.js"></script>

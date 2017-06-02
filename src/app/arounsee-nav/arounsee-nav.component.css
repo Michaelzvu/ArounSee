@@ -1,0 +1,73 @@
+.app-icon-button {
+  box-shadow: none;
+  user-select: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: normal;
+  height: auto;
+  line-height: inherit;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+
+.sidenav-container h2 {
+  border: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 0 83px;
+}
+
+.sidenav-container ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidenav-container li {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin: 0;
+  padding: 0;
+}
+
+.sidenav-container li {
+  border-color: rgba(0,0,0,.06);
+  color: rgba(0,0,0,.54);
+}
+
+.sidenav-container li>a {
+  box-sizing: border-box;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 47px;
+  text-decoration: none;
+  transition: all .3s;
+  padding: 0 16px;
+  position: relative;
+  color: rgba(0,0,0,.54);
+}
+
+.sidenav-container li>a:hover {
+  background: #fafafa;
+  color: #00bcd4;
+}
+
+.sidenav-container li>a.docs-component-viewer-sidenav-item-selected {
+  font-weight: 600;
+}
+
+.sidenav-container .toolbar {
+  background: #00bcd4;
+}
+
+.app-sidenav {
+  width: 240px;
+}

@@ -1,19 +1,27 @@
-<md-sidenav-container>
+<md-sidenav-container class="sidenav-container">
 
   <md-sidenav #sidenav mode="side" class="app-sidenav">
-    <!--<nav>-->
-      <!--<a [routerLink]=" ['./home'] "-->
-         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
-        <!--Home-->
-      <!--</a>-->
-      <!--<a [routerLink]=" ['./about'] "-->
-         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
-        <!--About-->
-      <!--</a>-->
-    <!--</nav>-->
+    <nav>
+      <h2>Menu</h2>
+      <ul>
+        <li>
+        <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/autocomplete"
+           class="sidenav-item-selected" [routerLink]=" ['./home'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Home
+        </a>
+      </li><li>
+        <a routerlinkactive="docs-component-viewer-sidenav-item-selected" href="/components/component/slide-toggle"
+           class="" [routerLink]=" ['./about'] "
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          About
+        </a>
+      </li>
+      </ul>
+    </nav>
   </md-sidenav>
 
-  <md-toolbar color="primary">
+  <md-toolbar class="toolbar">
     <button class="app-icon-button" (click)="sidenav.toggle()">
       <i class="material-icons app-toolbar-menu">menu</i>
     </button>

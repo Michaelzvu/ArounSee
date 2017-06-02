@@ -4,7 +4,7 @@ import { BaseRequestOptions, HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MdInputModule, MdButtonModule,
-  MdCardModule, MdSidenavModule, MdToolbarModule, MdIconModule
+  MdCardModule, MdSidenavModule, MdToolbarModule, MdIconModule, MdListModule, MdMenuModule, MdMenuItem
 } from '@angular/material';
 
 import {
@@ -38,6 +38,8 @@ import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import '../styles/indigo-pink.css';
+import '../styles/normalize.css';
 import { AuthGuard } from './_guards';
 import { AlertService } from './_services/alert.service';
 import { UserService } from './_services/user.service';
@@ -92,6 +94,8 @@ type StoreType = {
     MdSidenavModule,
     MdToolbarModule,
     MdIconModule,
+    MdListModule,
+    MdMenuModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**
