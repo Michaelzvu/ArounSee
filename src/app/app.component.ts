@@ -21,29 +21,6 @@ import { AppState } from './app.service';
   ],
   template: `
     <div id="anounsee-container">
-      <nav *ngIf="!isLoginState">
-        <a [routerLink]=" ['./'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Index
-        </a>
-        <a [routerLink]=" ['./home'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Home
-        </a>
-        <a [routerLink]=" ['./detail'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Detail
-        </a>
-        <a [routerLink]=" ['./barrel'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          Barrel
-        </a>
-        <a [routerLink]=" ['./about'] "
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          About
-        </a>
-      </nav>
-
       <main>
         <router-outlet></router-outlet>
       </main>
@@ -58,7 +35,6 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
   }
-
 }
 
 /**

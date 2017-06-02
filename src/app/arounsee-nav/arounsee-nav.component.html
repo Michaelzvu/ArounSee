@@ -1,0 +1,26 @@
+<md-sidenav-container>
+
+  <md-sidenav #sidenav mode="side" class="app-sidenav">
+    <!--<nav>-->
+      <!--<a [routerLink]=" ['./home'] "-->
+         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+        <!--Home-->
+      <!--</a>-->
+      <!--<a [routerLink]=" ['./about'] "-->
+         <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+        <!--About-->
+      <!--</a>-->
+    <!--</nav>-->
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+  </md-toolbar>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>

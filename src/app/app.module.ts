@@ -46,6 +46,7 @@ import { fakeBackendProvider } from './_helpers/fake-backend';
 import { MockBackend } from '@angular/http/testing';
 import { AlertComponent } from './_components/alert/alert.component';
 import { RegisterComponent } from './register/register.component';
+import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
 
 // Services
 
@@ -71,6 +72,7 @@ type StoreType = {
     AppComponent,
     AboutComponent,
     HomeComponent,
+    ArounseeNavComponent,
     NoContentComponent,
     XLargeDirective,
     AlertComponent,
