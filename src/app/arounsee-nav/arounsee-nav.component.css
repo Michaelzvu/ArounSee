@@ -1,3 +1,7 @@
+.sidenav-container {
+  height: 100%;
+}
+
 .app-icon-button {
   box-shadow: none;
   user-select: none;
