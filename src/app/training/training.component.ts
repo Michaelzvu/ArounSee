@@ -12,17 +12,21 @@ import {
    * for `document.querySelectorAll(selector)` in our index.html
    * where, in this case, selector is the string 'home'.
    */
-  selector: 'feed-list',  // <feed-list></feed-list>
+  selector: 'training',  // <training></training>
   /**
    * Our list of styles in our component. We may add more to compose many styles together.
    */
-  styleUrls: [ './feed-list.component.css' ],
+  styleUrls: [ './training.component.css' ],
   /**
    * Every Angular template is first compiled by the browser before Angular runs it's compiler.
    */
-  templateUrl: './feed-list.component.html'
+  templateUrl: './training.component.html'
 })
-export class FeedListComponent implements OnInit {
+export class TrainingComponent implements OnInit {
+  /**
+   * Set our default values
+   */
+  public localState = { value: '' };
   /**
    * TypeScript public modifiers
    */

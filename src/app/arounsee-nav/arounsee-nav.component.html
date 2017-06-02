@@ -6,13 +6,13 @@
       <ul>
         <li>
         <a routerlinkactive="docs-component-viewer-sidenav-item-selected"
-           class="sidenav-item-selected" [routerLink]=" ['/home'] "
+           [routerLink]=" ['/home'] " (click)="sidenav.toggle()"
            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           My Feed
         </a>
       </li><li>
         <a routerlinkactive="docs-component-viewer-sidenav-item-selected"
-           class="" [routerLink]=" ['/about'] "
+           [routerLink]=" ['/training'] " (click)="sidenav.toggle()"
            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           Train ArounSee
         </a>

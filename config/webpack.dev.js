@@ -10,8 +10,6 @@ const commonConfig = require('./webpack.common.js'); // the settings that are co
 /**
  * Webpack Plugins
  */
-/*const GoogleFontsPlugin = require("google-fonts-webpack-plugin");
-const MaterialDesignIcons = require("webpack-material-design-icons");*/
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');

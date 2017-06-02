@@ -49,6 +49,8 @@ import { MockBackend } from '@angular/http/testing';
 import { AlertComponent } from './_components/alert/alert.component';
 import { RegisterComponent } from './register/register.component';
 import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
+import { TrainingComponent } from './training/training.component';
+import { FeedListComponent } from './feed-list/feed-list.component';
 
 // Services
 
@@ -78,7 +80,9 @@ type StoreType = {
     NoContentComponent,
     XLargeDirective,
     AlertComponent,
-    RegisterComponent
+    RegisterComponent,
+    TrainingComponent,
+    FeedListComponent,
   ],
   /**
    * Import Angular's modules.

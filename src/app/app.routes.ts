@@ -6,6 +6,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
+import { TrainingComponent } from './training/training.component';
+import { FeedListComponent } from './feed-list/feed-list.component';
 
 export const ROUTES: Routes = [
   { path: '',
@@ -13,10 +15,11 @@ export const ROUTES: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: FeedListComponent },
+      { path: 'training', component: TrainingComponent },
+      { path: 'about', component: AboutComponent },
     ]},
   { path: 'login', component: LoginComponent },
-  { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**',    redirectTo: '' },
 ];
