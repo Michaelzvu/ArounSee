@@ -1,0 +1,13 @@
+.training-card {
+  margin: 16px;
+}
+
+.training-card .buttons-container {
+  justify-content: space-around;
+  display: flex;
+}
+
+.example-header-image {
+  background-image: url('');
+  background-size: cover;
+}
