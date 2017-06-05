@@ -1,4 +1,5 @@
 .sidenav-container {
+  background-color: #F5F5F5;
   height: 100%;
 }
 
@@ -57,9 +58,33 @@
 }
 
 .sidenav-container .toolbar {
-  background: #00bcd4;
+  background: #1565C0;
+  box-shadow:0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.sidenav-container .toolbar .title{
+      margin-left: 16px;
+    font-weight: 100;
+}
+
+#menu-toggle{
+	color:white;
+	margin-top: 4px;
 }
 
 .app-sidenav {
   width: 240px;
+}
+
+.app-content{
+  max-height:100%;
+  overflow-y: auto;
+  padding-left:13px;
+}
+
+.page-content{
+      display: flex!important;
+    flex-direction: column;
+    max-height:100%;
 }

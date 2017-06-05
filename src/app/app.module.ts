@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { BaseRequestOptions, HttpModule } from '@angular/http';
+import { BaseRequestOptions, HttpModule,JsonpModule  } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MdInputModule, MdButtonModule,
@@ -51,6 +51,7 @@ import { RegisterComponent } from './register/register.component';
 import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
 import { TrainingComponent } from './training/training.component';
 import { FeedListComponent } from './feed-list/feed-list.component';
+import { PlacesService } from './feed-list/places.service';
 
 // Services
 
@@ -115,6 +116,7 @@ type StoreType = {
     fakeBackendProvider,
     MockBackend,
     BaseRequestOptions,
+    PlacesService,
 
     ENV_PROVIDERS,
     APP_PROVIDERS

@@ -1,1 +1,6 @@
-<h1>MY FEED</h1>
+<md-card *ngFor="let place of places">
+     <img md-card-image src="{{place.image}}" class="md-card-image" alt="Washed Out">
+    <md-card-header>
+    <md-card-title>{{place.name}}</md-card-title>
+  </md-card-header>
+</md-card>
