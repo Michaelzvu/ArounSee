@@ -6,7 +6,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import {PlacesService} from './places.service';
+import { PlacesService } from './places.service';
 
 @Component({
   /**
@@ -25,9 +25,9 @@ import {PlacesService} from './places.service';
   templateUrl: './feed-list.component.html'
 })
 export class FeedListComponent implements OnInit {
-  errorMessage: string;
-  places: JSON[];
-  mode = 'Observable';
+  public errorMessage: string;
+  public places: JSON[];
+  public mode = 'Observable';
 
   /**
    * TypeScript public modifiers
@@ -35,11 +35,11 @@ export class FeedListComponent implements OnInit {
   constructor(private placesService: PlacesService
   ) {}
 
-  getPlaces() {
+  public getPlaces() {
     this.placesService.getPlaces()
                      .subscribe(
-                       places => this.places = places,
-                       error =>  this.errorMessage = <any>error);
+                       (places) => this.places = places,
+                       (error) =>  this.errorMessage = <any> error);
   }
 
   public ngOnInit() {
