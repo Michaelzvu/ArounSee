@@ -52,6 +52,9 @@ import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
 import { TrainingComponent } from './training/training.component';
 import { FeedListComponent } from './feed-list/feed-list.component';
 
+import { FeedDetailsComponent } from './feed-details/feed-details.component';
+
+
 // Services
 
 // Application wide providers
@@ -83,6 +86,7 @@ type StoreType = {
     RegisterComponent,
     TrainingComponent,
     FeedListComponent,
+    FeedDetailsComponent,
   ],
   /**
    * Import Angular's modules.

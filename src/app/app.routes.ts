@@ -9,6 +9,8 @@ import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
 import { TrainingComponent } from './training/training.component';
 import { FeedListComponent } from './feed-list/feed-list.component';
 
+import { FeedDetailsComponent } from './feed-details/feed-details.component';
+
 export const ROUTES: Routes = [
   { path: '',
     component: ArounseeNavComponent,
@@ -18,6 +20,8 @@ export const ROUTES: Routes = [
       { path: 'home', component: FeedListComponent },
       { path: 'training', component: TrainingComponent },
       { path: 'about', component: AboutComponent },
+      
+      { path: 'details', component: FeedDetailsComponent },
     ]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
