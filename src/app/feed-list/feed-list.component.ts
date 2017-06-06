@@ -6,6 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 
+import { PlacesService } from './places.service';
+
 @Component({
   /**
    * The selector is what angular internally uses
@@ -23,13 +25,24 @@ import {
   templateUrl: './feed-list.component.html'
 })
 export class FeedListComponent implements OnInit {
+  public errorMessage: string;
+  public places: JSON[];
+  public mode = 'Observable';
+
   /**
    * TypeScript public modifiers
    */
-  constructor(
+  constructor(private placesService: PlacesService
   ) {}
 
-  public ngOnInit() {
+  public getPlaces() {
+    this.placesService.getPlaces()
+                     .subscribe(
+                       (places) => this.places = places,
+                       (error) =>  this.errorMessage = <any> error);
+  }
 
+  public ngOnInit() {
+      this.getPlaces();
   }
 }
