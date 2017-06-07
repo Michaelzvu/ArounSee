@@ -5,6 +5,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { PlacesService } from '../_services/places.service';
 
 @Component({
   /**
@@ -23,17 +24,26 @@ import {
   templateUrl: './training.component.html'
 })
 export class TrainingComponent implements OnInit {
-  /**
-   * Set our default values
-   */
-  public localState = { value: '' };
+  public errorMessage: string;
+  public places: JSON[];
+  public firstPlace: any;
+  public mode = 'Observable';
   /**
    * TypeScript public modifiers
    */
-  constructor(
-  ) {}
+  constructor(private placesService: PlacesService) {}
 
   public ngOnInit() {
+    this.getPlaces();
+  }
 
+  private getPlaces() {
+    this.placesService.getPlaces()
+      .subscribe(
+        (places) => {
+          this.places = places;
+          this.firstPlace =  this.places[0];
+          },
+        (error) =>  this.errorMessage = <any> error);
   }
 }

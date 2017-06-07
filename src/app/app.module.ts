@@ -51,7 +51,7 @@ import { RegisterComponent } from './register/register.component';
 import { ArounseeNavComponent } from './arounsee-nav/arounsee-nav.component';
 import { TrainingComponent } from './training/training.component';
 import { FeedListComponent } from './feed-list/feed-list.component';
-import { PlacesService } from './feed-list/places.service';
+import { PlacesService } from './_services/places.service';
 
 import { FeedDetailsComponent } from './feed-details/feed-details.component';
 

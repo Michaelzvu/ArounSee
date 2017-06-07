@@ -20,7 +20,6 @@ export const ROUTES: Routes = [
       { path: 'home', component: FeedListComponent },
       { path: 'training', component: TrainingComponent },
       { path: 'about', component: AboutComponent },
-      
       { path: 'details', component: FeedDetailsComponent },
     ]},
   { path: 'login', component: LoginComponent },

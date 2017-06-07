@@ -6,7 +6,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { PlacesService } from './places.service';
+import { PlacesService } from '../_services/places.service';
 
 @Component({
   /**
