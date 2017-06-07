@@ -2,12 +2,15 @@
   margin: 16px;
 }
 
+.training-card .big-icon {
+  font-size: 47px;
+}
+
 .training-card .buttons-container {
   justify-content: space-around;
   display: flex;
 }
 
 .example-header-image {
-  background-image: url('');
   background-size: cover;
 }

@@ -13,8 +13,8 @@ export interface IPlace {
 @Injectable()
 export class PlacesService {
   private placesApi = 'http://localhost:8000/Places';
+  private places: JSON[];
 
-  public
   constructor (private http: Http) {}
 
   public getPlaces(): Observable<JSON[]> {
@@ -22,9 +22,17 @@ export class PlacesService {
                     .map(this.extractData);
   }
 
-  // This function is stupid and temporary
-  public setPlaces() {
+  public setPlaces(places: any) {
+    this.places = places;
+  }
 
+  public getPlaceById(id: number) {
+   /* return this.http.get(this.placesApi + '/' + id)
+      .map(this.extractData);*/
+   if (!this.places) {
+     return;
+   }
+   return this.places.find((place: any) => place.id === id.toString());
   }
 
   private extractData(res: Response) {

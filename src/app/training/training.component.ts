@@ -5,7 +5,11 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { PlacesService } from '../_services/places.service';
+import { IPlace, PlacesService } from '../_services/places.service';
+
+interface ITrainingModel extends IPlace {
+  hidden: boolean;
+}
 
 @Component({
   /**
@@ -25,25 +29,42 @@ import { PlacesService } from '../_services/places.service';
 })
 export class TrainingComponent implements OnInit {
   public errorMessage: string;
-  public places: JSON[];
-  public firstPlace: any;
+  public places: ITrainingModel[];
   public mode = 'Observable';
+  private counter: number;
+
   /**
    * TypeScript public modifiers
    */
   constructor(private placesService: PlacesService) {}
 
   public ngOnInit() {
+    this.counter = 0;
     this.getPlaces();
+  }
+
+  public moveToNext() {
+    this.places[this.counter].hidden = true;
+    this.counter++;
+    this.places[this.counter].hidden = false;
   }
 
   private getPlaces() {
     this.placesService.getPlaces()
-      .subscribe(
-        (places) => {
-          this.places = places;
-          this.firstPlace =  this.places[0];
-          },
-        (error) =>  this.errorMessage = <any> error);
+        .subscribe(
+          this.update.bind(this),
+          (error) =>  this.errorMessage = <any> error);
+  }
+
+  private update(places) {
+    this.places = places.map((place: any) => {
+      return {
+        id: place.id,
+        imageUrl: place.image,
+        name: place.name,
+        hidden: true
+        };
+    });
+    this.places[0].hidden = false;
   }
 }

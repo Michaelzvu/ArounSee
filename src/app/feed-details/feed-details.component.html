@@ -2,17 +2,14 @@
 <md-card class="example-card">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>PLACE1</md-card-title>
-    <md-card-subtitle>PLACE1-LOCATION</md-card-subtitle>
+    <md-card-title>{{place.name}}</md-card-title>
   </md-card-header>
-  <img md-card-image src="assets/img/examples/shiba2.jpg">
+  <img md-card-image src="{{place.image}}" class="md-card-image" alt="Washed Out">
   <md-card-content>
     <p>
-      This place is great for walking and trips, nicest view.
     </p>
   </md-card-content>
   <md-card-actions>
-    <button md-button>DIRECTIONS</button>
-<!--        <button md-button>SHARE</button>-->
+    <button md-button></button>
   </md-card-actions>
 </md-card>

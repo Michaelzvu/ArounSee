@@ -5,8 +5,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { MdIconRegistry } from '@angular/material';
-import { DomSanitizer } from '@angular/platform-browser';
+import { IPlace, PlacesService } from '../_services/places.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   /**
@@ -25,14 +25,37 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './feed-details.component.html'
 })
 export class FeedDetailsComponent implements OnInit {
+  public errorMessage: string;
+  public place: JSON;
+  public id: number;
 
   /**
    * TypeScript public modifiers
    */
-  constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+  constructor(private router: ActivatedRoute,
+              private placesService: PlacesService) {
+  }
+
+  public getPlaces() {
+    this.placesService.getPlaces()
+      .subscribe(
+        this.update.bind(this),
+        (error) =>  this.errorMessage = <any> error);
+  }
+
+  public update(place) {
+    this.place = place;
   }
 
   public ngOnInit() {
+    this.router.params.subscribe(this.idFromUrl.bind(this));
+  }
 
+  private idFromUrl(params) {
+    this.id = +params['id'];
+    this.place = this.placesService.getPlaceById(this.id);
+      // .subscribe(
+      //   this.update.bind(this),
+      //   (error) =>  this.errorMessage = <any> error);
   }
 }

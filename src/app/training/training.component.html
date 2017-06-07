@@ -1,10 +1,9 @@
-<md-card class="training-card">
+<md-card *ngFor="let place of places" class="training-card" [hidden]="place.hidden">
   <md-card-header>
     <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Shiba Inu</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
+    <md-card-title>{{place.name}}</md-card-title>
   </md-card-header>
-  <img md-card-image src="https://www.google.co.il/imgres?imgurl=http%3A%2F%2Fwww.guanchaoge.com%2Fdata%2Fout%2F59%2F55981560-hamburger-wallpapers.jpg&imgrefurl=http%3A%2F%2Fwww.guanchaoge.com%2Fhamburger-wallpapers.html&docid=8TEspu5nhBK24M&tbnid=XIBx9Qg9ocaFjM%3A&vet=10ahUKEwjTrvKq5aTUAhXHzxQKHRL6B484ZBAzCAcoBTAF..i&w=1920&h=1080&bih=1021&biw=1920&q=hamburger&ved=0ahUKEwjTrvKq5aTUAhXHzxQKHRL6B484ZBAzCAcoBTAF&iact=mrc&uact=8">
+  <img md-card-image src="{{place.imageUrl}}" class="md-card-image" alt="Washed Out">
   <md-card-content>
     <p>
       The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -13,11 +12,12 @@
     </p>
   </md-card-content>
   <md-card-actions class="buttons-container">
-    <button class="app-icon-button ">
-      <i class="material-icons">thumb_up</i>
+    <button class="app-icon-button" (click)="moveToNext()">
+      <i class="material-icons big-icon">thumb_up</i>
     </button>
-    <button class="app-icon-button ">
-      <i class="material-icons">thumb_down</i>
+    <button class="app-icon-button big-icon" (click)="moveToNext()">
+      <i class="material-icons big-icon">thumb_down</i>
     </button>
   </md-card-actions>
 </md-card>
+

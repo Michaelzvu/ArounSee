@@ -45,6 +45,7 @@ export class FeedListComponent implements OnInit {
 
   public update(places) {
     this.places = places;
+    this.placesService.setPlaces(places);
   }
 
   public ngOnInit() {

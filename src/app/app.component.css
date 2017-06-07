@@ -44,3 +44,5 @@ app {
   text-align: left;
   text-decoration: none;
 }
+
+[hidden] { display: none !important;}
