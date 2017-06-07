@@ -6,7 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 
-import { PlacesService } from '../_services/places.service';
+import { IPlace, PlacesService } from '../_services/places.service';
+import { Router } from '@angular/router';
 
 @Component({
   /**
@@ -32,17 +33,25 @@ export class FeedListComponent implements OnInit {
   /**
    * TypeScript public modifiers
    */
-  constructor(private placesService: PlacesService
-  ) {}
+  constructor(private router: Router,
+              private placesService: PlacesService) {}
 
   public getPlaces() {
     this.placesService.getPlaces()
                      .subscribe(
-                       (places) => this.places = places,
+                       this.update.bind(this),
                        (error) =>  this.errorMessage = <any> error);
+  }
+
+  public update(places) {
+    this.places = places;
   }
 
   public ngOnInit() {
       this.getPlaces();
+  }
+
+  public openDetails(place: IPlace) {
+    this.router.navigate(['/details', place.id]);
   }
 }

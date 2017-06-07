@@ -1,4 +1,4 @@
-<md-card *ngFor="let place of places">
+<md-card *ngFor="let place of places" (click)="openDetails(place)">
      <img md-card-image src="{{place.image}}" class="md-card-image" alt="Washed Out">
     <md-card-header>
     <md-card-title>{{place.name}}</md-card-title>
