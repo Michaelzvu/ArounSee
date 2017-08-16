@@ -59,10 +59,15 @@ export class FeedDetailsComponent implements OnInit {
               }
 
   public getPlaces() {
-    this.placesService.getPlaces()
-      .subscribe(
-        this.update.bind(this),
-        (error) =>  this.errorMessage = <any> error);
+     if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position => {
+        this.placesService.getPlaces(position.coords.latitude,position.coords.longitude)
+                     .subscribe(
+                       this.update.bind(this),
+                       (error) =>  this.errorMessage = <any> error);
+    
+   });
+   }
   }
 
   public update(place) {

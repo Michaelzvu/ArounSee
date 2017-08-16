@@ -20,8 +20,8 @@ export class PlacesService {
 
   constructor (private http: Http) {}
 
-  public getPlaces(): Observable<JSON[]> {
-    return this.http.get(this.placesApi+this.placesByLocation+"32.062918/34.7716473")
+  public getPlaces(lat:number,lon:number): Observable<JSON[]> {
+    return this.http.get(this.placesApi+this.placesByLocation+lat+"/"+lon)
                     .map(this.extractData);
   }
 

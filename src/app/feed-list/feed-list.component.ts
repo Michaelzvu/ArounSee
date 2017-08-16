@@ -46,10 +46,18 @@ export class FeedListComponent implements OnInit {
               }
 
   public getPlaces() {
-    this.placesService.getPlaces()
+  
+   if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(position => {
+        this.placesService.getPlaces(position.coords.latitude,position.coords.longitude)
                      .subscribe(
                        this.update.bind(this),
                        (error) =>  this.errorMessage = <any> error);
+    
+   });
+   }
+ 
+    
   }
 
   public update(places) {
