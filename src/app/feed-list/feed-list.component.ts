@@ -6,6 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 
+import {DomSanitizer} from '@angular/platform-browser';
+import {MdIconRegistry} from '@angular/material';
 import { IPlace, PlacesService } from '../_services/places.service';
 import { Router } from '@angular/router';
 
@@ -34,7 +36,14 @@ export class FeedListComponent implements OnInit {
    * TypeScript public modifiers
    */
   constructor(private router: Router,
-              private placesService: PlacesService) {}
+              private placesService: PlacesService,
+              iconRegistry: MdIconRegistry, 
+              sanitizer: DomSanitizer) {
+        iconRegistry.addSvgIcon(
+        'star',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_star_border_24px.svg'));
+
+              }
 
   public getPlaces() {
     this.placesService.getPlaces()

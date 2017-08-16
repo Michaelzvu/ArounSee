@@ -7,6 +7,9 @@ import {
 } from '@angular/core';
 import { IPlace, PlacesService } from '../_services/places.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MdIconRegistry} from '@angular/material';
 
 @Component({
   /**
@@ -27,14 +30,33 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FeedDetailsComponent implements OnInit {
   public errorMessage: string;
   public place: JSON;
-  public id: number;
+  public id: String;
 
   /**
    * TypeScript public modifiers
    */
   constructor(private router: ActivatedRoute,
-              private placesService: PlacesService) {
-  }
+              private placesService: PlacesService,
+              iconRegistry: MdIconRegistry, 
+              public sanitizer: DomSanitizer) {
+        iconRegistry.addSvgIcon(
+        'website',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_public_24px.svg'));
+        iconRegistry.addSvgIcon(
+        'phone',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_local_phone_24px.svg'));
+        iconRegistry.addSvgIcon(
+        'time',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_schedule_24px.svg'));
+        iconRegistry.addSvgIcon(
+        'room',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_room_24px.svg'));
+            iconRegistry.addSvgIcon(
+        'map',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_directions_24px.svg'));
+        
+
+              }
 
   public getPlaces() {
     this.placesService.getPlaces()
@@ -47,15 +69,21 @@ export class FeedDetailsComponent implements OnInit {
     this.place = place;
   }
 
+  sanitize(linkData :string){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(linkData);
+}
+
   public ngOnInit() {
+    this.place = JSON.parse("{\"name\":\"\",\"image\":\"\",\"id\":\"\"}");
+    
     this.router.params.subscribe(this.idFromUrl.bind(this));
   }
 
   private idFromUrl(params) {
-    this.id = +params['id'];
-    this.place = this.placesService.getPlaceById(this.id);
-      // .subscribe(
-      //   this.update.bind(this),
-      //   (error) =>  this.errorMessage = <any> error);
+    this.id = ""+params['id'];
+    this.placesService.getPlaceById(this.id)
+       .subscribe(
+         this.update.bind(this),
+       (error) =>  this.errorMessage = <any> error);
   }
 }

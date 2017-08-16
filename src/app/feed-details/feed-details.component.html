@@ -1,15 +1,29 @@
-
-<md-card class="example-card">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{place.name}}</md-card-title>
-  </md-card-header>
-  <img md-card-image style="width:500px; height: 300px;" src="{{place.image}}" class="md-card-image" alt="Washed Out">
+<div class="headerContainer">
+<img src="{{place.mainImage}}" class="md-card-image">
+<h1>{{place.name}}</h1>
+</div>
+<md-card class="detailCard" >
   <md-card-content>
-    <p>
-    </p>
+    <div id="websiteContainer" *ngIf="place.website !== undefined">
+    <md-icon svgIcon="website"></md-icon>
+    <a href="{{place.website}}">
+      {{place.website}}
+    </a>
+    </div>
+    <div id="addressContainer">
+    <md-icon svgIcon="room"></md-icon>
+    <p>{{place.address}}</p>
+    </div>
+    <div id="timeContainer" *ngIf="place.activityHours !== undefined">
+    <md-icon svgIcon="time"></md-icon>
+    <p>{{place.activityHours}}</p>
+    </div>
+    <hr>
+    <div id="actionContainer">
+      <div id="centerWrapper">
+        <a class="actionButton" md-raised-button [href]="sanitize('geo:'+place.navData)"><md-icon class="button-icon" >directions</md-icon></a>
+        <a class="actionButton" md-raised-button [href]="sanitize('tel:'+place.phone)"><md-icon class="button-icon" >phone</md-icon></a>
+      </div>
+    </div>
   </md-card-content>
-  <md-card-actions>
-    <button md-button></button>
-  </md-card-actions>
 </md-card>
