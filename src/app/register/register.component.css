@@ -1,6 +1,20 @@
 .register-form {
 }
 
+.register-form /deep/ .mat-input-placeholder {
+  color: white !important;
+  font-size: 13px;
+}
+
+.register-form /deep/ .mat-input-underline {
+  border-color: white !important;
+}
+
+/* When the input is focused */
+md-input-container.md-input-focused label {
+  color: white;
+}
+
 .register-form .login-button {
   max-width: 220px;
   margin: 10px;

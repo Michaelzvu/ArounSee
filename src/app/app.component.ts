@@ -16,8 +16,7 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.component.css',
-    '../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css'
+    './app.component.css'
   ],
   template: `
     <div id="anounsee-container">

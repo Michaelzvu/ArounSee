@@ -9,7 +9,8 @@
            #password="ngModel" [(ngModel)]="model.password" required>
   </md-input-container>
   <div class="button-container">
-    <button [disabled]="loading" class="login-button" md-raised-button>Login</button>
-    <button [routerLink]="['/register']" md-button>Register</button>
+    <!--<button [disabled]="loading" class="login-button" md-raised-button>Login</button>-->
+    <button [disabled]="loading" class="login-button" md-button>Login</button>
+    <button [routerLink]="['/register']" class="reg-button" md-button>Register</button>
   </div>
 </form>
