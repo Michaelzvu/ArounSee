@@ -6,6 +6,21 @@
   font-size: 47px;
 }
 
+.training-card i:hover {
+  background-color: #00BCD4 !important;
+  color: #37474F !important;
+}
+
+.md-button:hover {
+  background-color: rgba(158, 158, 158, 0.2) !important;
+}
+
+.app-icon-button:not([disabled]):hover {
+  background-color: rgba(107, 103, 91, 0.96);
+  color: white;
+}
+
+
 .training-card .buttons-container {
   justify-content: space-around;
   display: flex;

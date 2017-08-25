@@ -21,7 +21,7 @@ interface ITrainingModel extends IPlace {
   /**
    * Our list of styles in our component. We may add more to compose many styles together.
    */
-  styleUrls: [ './training.component.css' ],
+  styleUrls: ['./training.component.css'],
   /**
    * Every Angular template is first compiled by the browser before Angular runs it's compiler.
    */
@@ -50,15 +50,15 @@ export class TrainingComponent implements OnInit {
   }
 
   private getPlaces() {
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(position => {
-        this.placesService.getPlaces(position.coords.latitude,position.coords.longitude)
-                     .subscribe(
-                       this.update.bind(this),
-                       (error) =>  this.errorMessage = <any> error);
-    
-   });
-   }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.placesService.getPlaces(position.coords.latitude, position.coords.longitude)
+          .subscribe(
+            this.update.bind(this),
+            (error) => console.error(this.errorMessage));
+
+      });
+    }
   }
 
   private update(places) {
@@ -68,7 +68,7 @@ export class TrainingComponent implements OnInit {
         imageUrl: place.image,
         name: place.name,
         hidden: true
-        };
+      };
     });
     this.places[0].hidden = false;
   }

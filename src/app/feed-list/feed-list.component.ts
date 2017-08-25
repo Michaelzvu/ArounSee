@@ -6,8 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 
-import {DomSanitizer} from '@angular/platform-browser';
-import {MdIconRegistry} from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MdIconRegistry } from '@angular/material';
 import { IPlace, PlacesService } from '../_services/places.service';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
   /**
    * Our list of styles in our component. We may add more to compose many styles together.
    */
-  styleUrls: [ './feed-list.component.css' ],
+  styleUrls: ['./feed-list.component.css'],
   /**
    * Every Angular template is first compiled by the browser before Angular runs it's compiler.
    */
@@ -37,27 +37,25 @@ export class FeedListComponent implements OnInit {
    */
   constructor(private router: Router,
               private placesService: PlacesService,
-              iconRegistry: MdIconRegistry, 
+              iconRegistry: MdIconRegistry,
               sanitizer: DomSanitizer) {
-        iconRegistry.addSvgIcon(
-        'star',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_star_border_24px.svg'));
+    iconRegistry.addSvgIcon(
+      'star',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_star_border_24px.svg'));
 
-              }
+  }
 
   public getPlaces() {
-  
-   if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(position => {
-        this.placesService.getPlaces(position.coords.latitude,position.coords.longitude)
-                     .subscribe(
-                       this.update.bind(this),
-                       (error) =>  this.errorMessage = <any> error);
-    
-   });
-   }
- 
-    
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.placesService.getPlaces(position.coords.latitude, position.coords.longitude)
+          .subscribe(
+            this.update.bind(this),
+            (error) => console.error(this.errorMessage));
+
+      });
+    }
   }
 
   public update(places) {
@@ -66,7 +64,7 @@ export class FeedListComponent implements OnInit {
   }
 
   public ngOnInit() {
-      this.getPlaces();
+    this.getPlaces();
   }
 
   public openDetails(place: IPlace) {
