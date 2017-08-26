@@ -5,15 +5,13 @@
       <h2>Menu</h2>
       <ul>
         <li>
-        <a routerlinkactive="docs-component-viewer-sidenav-item-selected"
-           [routerLink]=" ['/home'] " (click)="sidenav.toggle()"
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]=" ['/home'] " (click)="sidenav.toggle()"
+           [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
           My Feed
         </a>
       </li><li>
-        <a routerlinkactive="docs-component-viewer-sidenav-item-selected"
-           [routerLink]=" ['/training'] " (click)="sidenav.toggle()"
-           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]=" ['/training'] " (click)="sidenav.toggle()"
+           [routerLinkActive]="['active']">
           Train ArounSee
         </a>
       </li>

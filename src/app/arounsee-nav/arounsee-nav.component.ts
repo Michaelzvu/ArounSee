@@ -18,7 +18,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   /**
    * Our list of styles in our component. We may add more to compose many styles together.
    */
-  styleUrls: [ './arounsee-nav.component.css' ],
+  styleUrls: ['./arounsee-nav.component.css'],
   /**
    * Every Angular template is first compiled by the browser before Angular runs it's compiler.
    */
