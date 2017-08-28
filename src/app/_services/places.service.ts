@@ -7,8 +7,17 @@ import 'rxjs/add/operator/filter';
 
 export interface IPlace {
   id: string;
-  imageUrl: string;
+  mainImage: string;
   name: string;
+  activityHours: string;
+  address: string;
+  images: string[];
+  openingHours: string[];
+  phone: string;
+  priceLevel: string;
+  rating: string;
+  review: string;
+  website: string;
 }
 
 @Injectable()

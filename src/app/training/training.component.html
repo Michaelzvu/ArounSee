@@ -1,23 +1,35 @@
-<md-card *ngFor="let place of places" class="training-card" [hidden]="place.hidden">
-  <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>{{place.name}}</md-card-title>
-  </md-card-header>
-  <img md-card-image src="{{place.imageUrl}}" class="md-card-image" alt="Washed Out">
-  <md-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </md-card-content>
-  <md-card-actions class="buttons-container">
-    <button md-icon-button class="app-icon-button" (click)="moveToNext()">
-      <md-icon class="big-icon">thumb_up</md-icon>
-    </button>
-    <button md-icon-button class="app-icon-button" (click)="moveToNext()">
-      <md-icon class="big-icon">thumb_down</md-icon>
-    </button>
-  </md-card-actions>
-</md-card>
-
+<div *ngFor="let place of places" [hidden]="place.hidden" class="training-cont">
+  <div class="headerContainer">
+    <img src="{{place.mainImage}}" class="md-card-image">
+    <h1>{{place.name}}</h1>
+  </div>
+  <md-card class="training-card">
+    <md-card-header>
+    </md-card-header>
+    <md-card-content>
+      <star-rating-comp class="detail"
+                        [starType]="'svg'"
+                        [rating]="place.rating"
+                        [staticColor]="'ok'"
+                        [showHalfStars]="true"
+                        [readOnly]="true"></star-rating-comp>
+      <div class="detail">{{place.review}}</div>
+      <div class="detail"><span class="bold">Address:</span> {{place.address}}</div>
+      <div class="detail"><span class="bold">Phone number:</span>  {{place.phone}}</div>
+      <div class="detail"><span class="bold">Opening hours:</span> {{place.openingHours}}</div>
+      <div class="detail"><a href="url">{{place.website}}</a></div>
+    </md-card-content>
+    <md-card-actions class="buttons-container">
+      <div> <star-rating-comp class="star-user-rating"
+                              [id]="place.id"
+                              [starType]="'svg'"
+                              [rating]="0"
+                              [staticColor]="'ok'"
+                              [size]="'large'"
+                              [showHalfStars]="true"></star-rating-comp></div>
+    </md-card-actions>
+  </md-card>
+  <button class="button-next" md-raised-button (click)="moveToNext()">
+    Rate the next place
+  </button>
+</div>

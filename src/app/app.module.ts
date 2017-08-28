@@ -54,6 +54,7 @@ import { FeedListComponent } from './feed-list/feed-list.component';
 import { PlacesService } from './_services/places.service';
 
 import { FeedDetailsComponent } from './feed-details/feed-details.component';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 // Services
@@ -105,7 +106,8 @@ type StoreType = {
     MdIconModule,
     MdListModule,
     MdMenuModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    StarRatingModule.forRoot(),
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

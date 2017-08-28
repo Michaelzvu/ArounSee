@@ -1,28 +1,32 @@
 <div class="headerContainer">
-<img src="{{place.mainImage}}" class="md-card-image">
-<h1>{{place.name}}</h1>
+  <img src="{{place.mainImage}}" class="md-card-image">
+  <h1>{{place.name}}</h1>
 </div>
-<md-card class="detailCard" >
+<md-card class="detailCard">
   <md-card-content>
     <div id="websiteContainer" *ngIf="place.website !== undefined">
-    <md-icon svgIcon="website"></md-icon>
-    <a href="{{place.website}}">
-      {{place.website}}
-    </a>
+      <md-icon svgIcon="website"></md-icon>
+      <a href="{{place.website}}">
+        {{place.website}}
+      </a>
     </div>
     <div id="addressContainer">
-    <md-icon svgIcon="room"></md-icon>
-    <p>{{place.address}}</p>
+      <md-icon svgIcon="room"></md-icon>
+      <p>{{place.address}}</p>
     </div>
     <div id="timeContainer" *ngIf="place.activityHours !== undefined">
-    <md-icon svgIcon="time"></md-icon>
-    <p>{{place.activityHours}}</p>
+      <md-icon svgIcon="time"></md-icon>
+      <p>{{place.activityHours}}</p>
     </div>
     <hr>
     <div id="actionContainer">
       <div id="centerWrapper">
-        <a class="actionButton" md-raised-button [href]="sanitize('geo:'+place.navData)"><md-icon class="button-icon" >directions</md-icon></a>
-        <a class="actionButton" md-raised-button [href]="sanitize('tel:'+place.phone)"><md-icon class="button-icon" >phone</md-icon></a>
+        <a class="actionButton" md-raised-button [href]="sanitize('geo:'+place.navData)">
+          <md-icon class="button-icon">directions</md-icon>
+        </a>
+        <a class="actionButton" md-raised-button [href]="sanitize('tel:'+place.phone)">
+          <md-icon class="button-icon">phone</md-icon>
+        </a>
       </div>
     </div>
   </md-card-content>
