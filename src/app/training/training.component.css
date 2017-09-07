@@ -3,6 +3,14 @@
   font-size: 12px;
 }
 
+.training-cont .website {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
 .training-cont .bold {
   font-weight: bold;
 }

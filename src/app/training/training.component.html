@@ -1,4 +1,4 @@
-<div *ngFor="let place of places" [hidden]="place.hidden" class="training-cont">
+<div *ngFor="let place of places" [hidden]="place.hidden || isRatingEnds" class="training-cont">
   <div class="headerContainer">
     <img src="{{place.mainImage}}" class="md-card-image">
     <h1>{{place.name}}</h1>
@@ -14,10 +14,10 @@
                         [showHalfStars]="true"
                         [readOnly]="true"></star-rating-comp>
       <div class="detail">{{place.review}}</div>
-      <div class="detail"><span class="bold">Address:</span> {{place.address}}</div>
-      <div class="detail"><span class="bold">Phone number:</span>  {{place.phone}}</div>
-      <div class="detail"><span class="bold">Opening hours:</span> {{place.openingHours}}</div>
-      <div class="detail"><a href="url">{{place.website}}</a></div>
+      <div class="detail" *ngIf="place.address && place.address.length !== 0"><span class="bold">Address:</span> {{place.address}}</div>
+      <div class="detail" *ngIf="place.phone && place.phone.length !== 0"><span class="bold">Phone number:</span>  {{place.phone}}</div>
+      <!--<div class="detail" *ngIf="place.openingHours && place.openingHours.length !== 0"><span class="bold">Opening hours:</span> {{place.openingHours}}</div>-->
+      <div class="detail website"><a href="url">{{place.website}}</a></div>
     </md-card-content>
     <md-card-actions class="buttons-container">
       <div> <star-rating-comp class="star-user-rating"
@@ -33,3 +33,15 @@
     Rate the next place
   </button>
 </div>
+
+<md-card *ngIf="isRatingEnds" class="training-card">
+  <md-card-header>
+    <h2>Thank you for your time!</h2>
+  </md-card-header>
+  <md-card-content>
+    <a [routerLink]=" ['/home'] "
+       [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+      Home Page
+    </a>
+  </md-card-content>
+</md-card>

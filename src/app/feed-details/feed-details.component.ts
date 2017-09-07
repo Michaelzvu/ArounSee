@@ -56,18 +56,6 @@ export class FeedDetailsComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('assets/svg/ic_directions_24px.svg'));
   }
 
-  public getPlaces() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.placesService.getPlaces(position.coords.latitude, position.coords.longitude)
-          .subscribe(
-            this.update.bind(this),
-            (error) => this.errorMessage = <any> error);
-
-      });
-    }
-  }
-
   public update(place) {
     this.place = place;
   }

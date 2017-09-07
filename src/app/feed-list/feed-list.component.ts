@@ -45,26 +45,24 @@ export class FeedListComponent implements OnInit {
 
   }
 
+  public ngOnInit() {
+    this.getPlaces();
+  }
+
   public getPlaces() {
+    this.placesService.getGeoLocation(this.initPlaces.bind(this));
+  }
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.placesService.getPlaces(position.coords.latitude, position.coords.longitude)
-          .subscribe(
-            this.update.bind(this),
-            (error) => console.error(this.errorMessage));
-
-      });
-    }
+  public initPlaces(position) {
+    this.placesService.getPlaces(position.coords.latitude, position.coords.longitude)
+      .subscribe(
+        this.update.bind(this),
+        (error) => console.error(this.errorMessage));
   }
 
   public update(places) {
     this.places = places;
     this.placesService.setPlaces(places);
-  }
-
-  public ngOnInit() {
-    this.getPlaces();
   }
 
   public openDetails(place: IPlace) {

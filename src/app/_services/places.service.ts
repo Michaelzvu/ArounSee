@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
+import { getErrorLogger } from '@angular/core/src/errors';
 
 export interface IPlace {
   id: string;
@@ -22,10 +23,11 @@ export interface IPlace {
 
 @Injectable()
 export class PlacesService {
-  private placesApi = 'http://localhost:8080/places';
+  private placesApi = 'http://localhost:8888/places';
   private placesByLocation = '/getPlacesByLatLng/';
   private placeById = '/getPlaceById/';
   private places: JSON[];
+  private geoLocation: Position;
 
   constructor(private http: Http) {}
 
@@ -43,6 +45,20 @@ export class PlacesService {
       .map(this.extractData);
     //   var source = Observable.from(this.places).filter((x: any)=>  x.id === id.toString());
     //   return source;
+  }
+
+  public getGeoLocation(callback: Function) {
+    if (this.geoLocation) {
+      callback(this.geoLocation);
+      return;
+    }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.geoLocation = position;
+        callback(this.geoLocation);
+      });
+    }
   }
 
   private extractData(res: Response) {
