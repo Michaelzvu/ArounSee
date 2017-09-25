@@ -26,6 +26,7 @@ export class PlacesService {
   private placesApi = 'http://localhost:8888/places';
   private placesByLocation = '/getPlacesByLatLng/';
   private placeById = '/getPlaceById/';
+  private rankPlaces = '/rankPlaces/';
   private places: JSON[];
   private geoLocation: Position;
 
@@ -34,6 +35,12 @@ export class PlacesService {
   public getPlaces(lat: number, lon: number): Observable<JSON[]> {
     return this.http.get(this.placesApi + this.placesByLocation + lat + '/' + lon)
       .map(this.extractData);
+  }
+
+  public ratePlace(userId: string, placeId: string, rank: number) {
+    this.http.post(this.rankPlaces,
+      {userId, placeId, rank});
+
   }
 
   public setPlaces(places: any) {

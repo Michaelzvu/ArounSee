@@ -11,6 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 interface ITrainingModel extends IPlace {
   hidden: boolean;
+  userRating: number;
 }
 
 @Component({
@@ -49,6 +50,9 @@ export class TrainingComponent implements OnInit {
   }
 
   public moveToNext() {
+    this.placesService.ratePlace('1',
+      this.places[this.counter].id,
+      this.places[this.counter].userRating);
     this.places[this.counter].hidden = true;
     this.counter++;
     if (!this.places[this.counter]) {
@@ -84,7 +88,8 @@ export class TrainingComponent implements OnInit {
         rating: place.rating,
         review: place.review,
         website: place.website,
-        hidden: true
+        hidden: true,
+        userRating: 0,
       };
     });
 
