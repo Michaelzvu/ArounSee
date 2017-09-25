@@ -41,7 +41,7 @@ export class RegisterComponent {
                     this.router.navigate(['/login']);
                 },
               (error) => {
-                    this.alertService.error(error);
+                    console.error(error);
                     this.loading = false;
                 });
     }

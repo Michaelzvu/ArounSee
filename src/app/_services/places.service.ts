@@ -33,14 +33,13 @@ export class PlacesService {
   constructor(private http: Http) {}
 
   public getPlaces(lat: number, lon: number): Observable<JSON[]> {
-    return this.http.get(this.placesApi + this.placesByLocation + lat + '/' + lon)
+    return this.http.get(this.placesApi + this.placesByLocation +
+      lat + '/' + lon + '/' + JSON.parse(localStorage.getItem('currentUser')).id)
       .map(this.extractData);
   }
 
   public ratePlace(userId: string, placeId: string, rank: number) {
-    this.http.post(this.rankPlaces,
-      {userId, placeId, rank});
-
+    this.http.get(this.placesApi + this.rankPlaces + userId + '/' + placeId + '/' + rank);
   }
 
   public setPlaces(places: any) {

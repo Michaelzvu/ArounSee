@@ -36,21 +36,22 @@ export class TrainingComponent implements OnInit {
   public mode = 'Observable';
   public isRatingEnds = false;
   private counter: number;
+  private currentUser: any;
 
   /**
    * TypeScript public modifiers
    */
   constructor(private placesService: PlacesService) {
-
   }
 
   public ngOnInit() {
     this.counter = 0;
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.getPlaces();
   }
 
   public moveToNext() {
-    this.placesService.ratePlace('1',
+    this.placesService.ratePlace(this.currentUser.id,
       this.places[this.counter].id,
       this.places[this.counter].userRating);
     this.places[this.counter].hidden = true;

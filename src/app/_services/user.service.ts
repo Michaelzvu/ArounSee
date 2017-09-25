@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 export interface IUser {
-  id: number;
+  id: string;
   username: string;
   password: string;
   firstName: string;
@@ -14,6 +14,7 @@ export interface IUser {
 
 @Injectable()
 export class UserService {
+  private authApi = 'http://localhost:8888/authentication';
   constructor(private http: Http) { }
 
   public getAll() {
@@ -27,8 +28,7 @@ export class UserService {
   }
 
   public create(user: IUser) {
-    return this.http.post('/api/users', user, this.jwt())
-      .map((response: Response) => response.json());
+    return this.http.post(this.authApi + '/register', user);
   }
 
   public update(user: IUser) {
