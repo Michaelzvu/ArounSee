@@ -4,6 +4,13 @@
 </div>
 <md-card class="detailCard">
   <md-card-content>
+
+    <div id="reviewContainer" *ngIf="place.review !== undefined">
+      <span>
+          {{place.review}}
+      </span>
+    </div>
+
     <div id="websiteContainer" *ngIf="place.website !== undefined">
       <md-icon svgIcon="website"></md-icon>
       <a href="{{place.website}}">
